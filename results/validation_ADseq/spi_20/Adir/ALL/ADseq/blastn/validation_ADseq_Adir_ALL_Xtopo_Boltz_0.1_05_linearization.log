@@ -1,0 +1,23 @@
+linearize_genomes.py ../results/validation_ADseq/spi_20/Adir/ALL/ADseq/blastn/validation_ADseq_Adir_ALL_Xtopo_Boltz_0.1.adjacencies.txt 23 0.5 ../results/validation_ADseq/spi_20/Adir/ALL/ADseq/blastn/validation_ADseq_Adir_ALL_Xtopo_Boltz_0.1_05 M1 1 0.01
+Species 23 --------------------------
+  Reading adjacencies
+  Number of adjacencies: 12754
+  Observed adjacencies
+  Filter 1
+    Number of adjacencies: 8265
+  Creating graph
+  Maximum Weight Matching
+    Number of adjacencies: 8086
+  Creating scaffolds (including circular ones)
+  Filter 4
+    Number of adjacencies: 8083
+  Ordering genes along scaffolds
+  Writing output
+    Observed scaffolds
+    Improved scaffolds
+    Kept adjacencies
+    Discarded adjacencies
+Checking consistency of the results---------------------
+  Checking that kept adjacencies are observed in the scaffolds
+  Checking that scaffolds adjacencies are in the kept adjacencies
+  Checking that discarded adjacencies can not be added back
