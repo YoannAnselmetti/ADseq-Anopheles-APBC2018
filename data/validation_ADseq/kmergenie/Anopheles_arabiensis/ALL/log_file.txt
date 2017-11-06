@@ -1,0 +1,19 @@
+running histogram estimation
+File VALIDATION_by_COVERAGE/list_all_FASTQ_Aara.txt starts with character "/", hence is interpreted as a list of file names
+Reading 16 read files
+Linear estimation: ~21484 M distinct 56-mers are in the reads
+K-mer sampling: 1/4097
+going to estimate histograms for values of k: 91 81 71 61 51 41 31 21 
+fitting model to histograms to estimate best k
+estimation of the best k so far: 71
+refining estimation around [65; 77], with a step of 2
+running histogram estimation
+File VALIDATION_by_COVERAGE/list_all_FASTQ_Aara.txt starts with character "/", hence is interpreted as a list of file names
+Reading 16 read files
+Linear estimation: ~24810 M distinct 49-mers are in the reads
+K-mer sampling: 1/4732
+going to estimate histograms for values of k: 77 75 73 71 69 67 65 
+fitting model to histograms to estimate best k
+table of predicted num. of genomic k-mers: VALIDATION_by_COVERAGE/kmergenie/Anopheles_arabiensis/all/kmergenie_Aara_all_histograms.dat
+recommended coverage cut-off for best k: 2
+best k: 69

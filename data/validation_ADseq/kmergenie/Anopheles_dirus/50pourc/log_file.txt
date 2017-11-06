@@ -1,0 +1,21 @@
+running histogram estimation
+File /home/yanselmetti/Anopheles_project/VALIDATION_by_COVERAGE/list_50pourc_FASTQ_Adir.txt starts with character "/", hence is interpreted as a list of file names
+Reading 24 read files
+Linear estimation: ~1858 M distinct 56-mers are in the reads
+K-mer sampling: 1/354
+going to estimate histograms for values of k: 91 81 71 61 51 41 31 21 
+fitting model to histograms to estimate best k
+could not fit /home/yanselmetti/Anopheles_project/VALIDATION_by_COVERAGE/kmergenie/Anopheles_dirus/50pourc/kmergenie_Adir_50pourc_histograms-k91.histo
+estimation of the best k so far: 61
+refining estimation around [55; 67], with a step of 2
+running histogram estimation
+File /home/yanselmetti/Anopheles_project/VALIDATION_by_COVERAGE/list_50pourc_FASTQ_Adir.txt starts with character "/", hence is interpreted as a list of file names
+Reading 24 read files
+Linear estimation: ~2423 M distinct 44-mers are in the reads
+K-mer sampling: 1/462
+going to estimate histograms for values of k: 67 65 63 61 59 57 55 
+fitting model to histograms to estimate best k
+could not fit /home/yanselmetti/Anopheles_project/VALIDATION_by_COVERAGE/kmergenie/Anopheles_dirus/50pourc/kmergenie_Adir_50pourc_histograms-k91.histo
+table of predicted num. of genomic k-mers: /home/yanselmetti/Anopheles_project/VALIDATION_by_COVERAGE/kmergenie/Anopheles_dirus/50pourc/kmergenie_Adir_50pourc_histograms.dat
+recommended coverage cut-off for best k: 1
+best k: 63

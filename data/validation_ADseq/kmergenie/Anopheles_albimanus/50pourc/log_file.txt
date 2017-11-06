@@ -1,0 +1,19 @@
+running histogram estimation
+File VALIDATION_by_COVERAGE/list_50pourc_FASTQ_Aalb.txt starts with character "/", hence is interpreted as a list of file names
+Reading 16 read files
+Linear estimation: ~13059 M distinct 56-mers are in the reads
+K-mer sampling: 1/2490
+going to estimate histograms for values of k: 91 81 71 61 51 41 31 21 
+fitting model to histograms to estimate best k
+estimation of the best k so far: 81
+refining estimation around [75; 87], with a step of 2
+running histogram estimation
+File VALIDATION_by_COVERAGE/list_50pourc_FASTQ_Aalb.txt starts with character "/", hence is interpreted as a list of file names
+Reading 16 read files
+Linear estimation: ~13654 M distinct 54-mers are in the reads
+K-mer sampling: 1/2604
+going to estimate histograms for values of k: 87 85 83 81 79 77 75 
+fitting model to histograms to estimate best k
+table of predicted num. of genomic k-mers: VALIDATION_by_COVERAGE/kmergenie/Anopheles_albimanus/50_pourc/kmergenie_Aalb_50pourc_histograms.dat
+recommended coverage cut-off for best k: 2
+best k: 75
