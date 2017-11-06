@@ -14,14 +14,14 @@ git clone https://github.com/YoannAnselmetti/ADseq-Anopheles-APBC2018.git
 
 # Repository structure and content
 
-The scheme below represents the global structure of this repository: 
-.
-├── bin/
-├── data/
-├── doc/18Anopheles_sequencing_data.ods
-├── figures/
-├── README.md
-└── results/
+The scheme below represents the global structure of this repository:   
+.  
+├── bin/  
+├── data/  
+├── doc/18Anopheles_sequencing_data.ods  
+├── figures/  
+├── README.md  
+└── results/  
 
 In the following, we describe the different directories present in this GitHub repository. 
 
