@@ -1,0 +1,100 @@
+=> There are 17649 gene families in file data/INPUT_DATA/unrooted_raw_trees.nwk
+=> There are 3 gene families with only 1 species!!!
+
+=> There are 0 genes that are present in several trees in Anopheles_stephensiI!!!
+Value	#Gene_families(/#species)	#Gene_families(/#genes)	#Genes(/gene_families_with_#species)
+1	3	NA	6
+2	2766	2677	5648
+3	1446	1407	4496
+4	710	734	2970
+5	493	488	2611
+6	395	380	2557
+7	369	352	2772
+8	356	337	3030
+9	391	396	3804
+10	331	341	3488
+11	305	295	3482
+12	328	332	4220
+13	383	354	5277
+14	493	448	7232
+15	694	565	11078
+16	1243	1043	20736
+17	2406	1925	42779
+18	4537	3327	86483
+19	NA	1233	NA
+20	NA	415	NA
+21	NA	145	NA
+22	NA	94	NA
+23	NA	51	NA
+24	NA	46	NA
+25	NA	31	NA
+26	NA	38	NA
+27	NA	26	NA
+28	NA	35	NA
+29	NA	21	NA
+30	NA	18	NA
+31	NA	7	NA
+32	NA	16	NA
+33	NA	17	NA
+34	NA	11	NA
+35	NA	8	NA
+36	NA	5	NA
+37	NA	5	NA
+38	NA	1	NA
+39	NA	3	NA
+41	NA	2	NA
+42	NA	1	NA
+43	NA	1	NA
+44	NA	3	NA
+45	NA	2	NA
+46	NA	1	NA
+47	NA	3	NA
+50	NA	2	NA
+51	NA	1	NA
+59	NA	1	NA
+68	NA	1	NA
+76	NA	1	NA
+80	NA	1	NA
+98	NA	1	NA
+144	NA	1	NA
+
+Number of genes / species in gene families:
+	Anopheles_albimanus	10390
+	Anopheles_arabiensis	11846
+	Anopheles_atroparvus	12240
+	Anopheles_christyi	10054
+	Anopheles_culicifacies	13007
+	Anopheles_darlingi	9827
+	Anopheles_dirus	11360
+	Anopheles_epiroticus	11372
+	Anopheles_farauti	12075
+	Anopheles_funestus	11566
+	Anopheles_gambiae	12103
+	Anopheles_maculatus	11982
+	Anopheles_melas	14688
+	Anopheles_merus	12816
+	Anopheles_minimus	11256
+	Anopheles_quadriannulatus	11824
+	Anopheles_sinensis	12796
+	Anopheles_stephensi	11467
+	ALL_species	212669
+
+Occurence of species present in gene families <= 3genes (4084 gene families):
+	Anopheles_melas => 1309
+	Anopheles_merus => 1202
+	Anopheles_sinensis => 950
+	Anopheles_atroparvus => 882
+	Anopheles_maculatus => 870
+	Anopheles_culicifacies => 751
+	Anopheles_farauti => 716
+	Anopheles_quadriannulatus => 413
+	Anopheles_arabiensis => 398
+	Anopheles_gambiae => 288
+	Anopheles_funestus => 258
+	Anopheles_christyi => 240
+	Anopheles_epiroticus => 229
+	Anopheles_darlingi => 225
+	Anopheles_stephensi => 200
+	Anopheles_dirus => 197
+	Anopheles_minimus => 191
+	Anopheles_albimanus => 174

@@ -1,0 +1,70 @@
+X phylogeny, non scaffold	211
+X phylogeny, non scaffold	95
+X phylogeny, non scaffold	145
+X phylogeny, non scaffold	51
+X phylogeny, non scaffold	26
+X phylogeny, non scaffold	23
+X phylogeny, non scaffold	26
+X phylogeny, non scaffold	1e-06
+X phylogeny, non scaffold	66
+X phylogeny, non scaffold	12
+X phylogeny, non scaffold	101
+X phylogeny, non scaffold	32
+X phylogeny, non scaffold	1e-06
+X phylogeny, non scaffold	13
+X phylogeny, non scaffold	6
+X phylogeny, non scaffold	78
+X phylogeny, non scaffold	71
+X phylogeny, non scaffold	55
+X phylogeny, non scaffold	250
+X phylogeny, non scaffold	298
+X phylogeny, non scaffold	115
+X phylogeny, non scaffold	131
+X phylogeny, non scaffold	216
+X phylogeny, non scaffold	114
+X phylogeny, non scaffold	71
+X phylogeny, non scaffold	159
+X phylogeny, non scaffold	168
+X phylogeny, non scaffold	130
+X phylogeny, non scaffold	106
+X phylogeny, non scaffold	130
+X phylogeny, non scaffold	85
+X phylogeny, non scaffold	57
+X phylogeny, non scaffold	23
+X phylogeny, non scaffold	0
+X phylogeny, non scaffold	15
+X phylogeny, scaffold	222
+X phylogeny, scaffold	128
+X phylogeny, scaffold	151
+X phylogeny, scaffold	97
+X phylogeny, scaffold	32
+X phylogeny, scaffold	38
+X phylogeny, scaffold	45
+X phylogeny, scaffold	37
+X phylogeny, scaffold	85
+X phylogeny, scaffold	39
+X phylogeny, scaffold	143
+X phylogeny, scaffold	123
+X phylogeny, scaffold	6
+X phylogeny, scaffold	27
+X phylogeny, scaffold	28
+X phylogeny, scaffold	86
+X phylogeny, scaffold	71
+X phylogeny, scaffold	67
+X phylogeny, scaffold	258
+X phylogeny, scaffold	316
+X phylogeny, scaffold	135
+X phylogeny, scaffold	119
+X phylogeny, scaffold	248
+X phylogeny, scaffold	110
+X phylogeny, scaffold	105
+X phylogeny, scaffold	181
+X phylogeny, scaffold	203
+X phylogeny, scaffold	170
+X phylogeny, scaffold	121
+X phylogeny, scaffold	141
+X phylogeny, scaffold	42
+X phylogeny, scaffold	56
+X phylogeny, scaffold	25
+X phylogeny, scaffold	0
+X phylogeny, scaffold	16
