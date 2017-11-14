@@ -6,8 +6,8 @@
 ###
 ###   INPUT:
 ###      1- BESST directory
-###         (DECOSTAR/DATA_DeCoSTAR/DATA_SEQ/SCAFFOLDING/BESST-2.2.5/Bowtie2_ALL/TRIMMOMATIC3/ALL/)
-###         (Validation_ADseq/coverage/SCAFFOLDING/BESST-2.2.5/Bowtie2_X_50/50pourc)
+###         (data/DATA_SEQ/SCAFFOLDING/BESST-2.2.6/Bowtie2_ALL/TRIMMOMATIC3/ALL/)
+###         (data/DATA_SEQ/SCAFFOLDING/BESST-2.2.6/Bowtie2_k50/50pourc)
 ###      2- Maximum distance between linked contigs
 ###         (Ex: 1000000000)
 ###      3- Links number threshold in scaffolding adjacencies
