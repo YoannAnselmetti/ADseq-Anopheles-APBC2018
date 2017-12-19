@@ -224,11 +224,12 @@ data/GENE_TREES
 ```
 
 The [data/GENE\_TREES](data/GENE_TREES) directory contains the gene trees files produced for the 18 Anopheles dataset.
-The directory contains 6 files:
+The directory contains 3 files:
 
 * **trees\_DeCoSTAR\_WGtopo.nwk**: gene trees used as input of DeCoSTAR with the species tree topology WG
 * **trees\_DeCoSTAR\_Xtopo.nwk**: gene trees used as input of DeCoSTAR with the species tree topology X
 * **unrooted\_trees_filtered.nwk**: initial gene trees obtained from raw gene trees ([unrooted\_raw\_trees.nwk](data/INPUT_DATA/unrooted_raw_trees.nwk)) after discarding gene trees containing included genes
+
 It contains also 2 directories:
 
 * **CDS/bootstrap\_support/RAxML** contains gene trees that have been produced with the maximum likelihood inference gene tree tool RAxML.
