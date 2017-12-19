@@ -24,10 +24,10 @@ git clone https://github.com/YoannAnselmetti/ADseq-Anopheles-APBC2018.git
 └── results/  
 ```
 
-All experiments presented in our paper can be reproduced from this repository (except some intermediate steps for which data are not available due the large size of the files: GitHub limiting size to 100Mb)
+All experiments presented in our paper can be reproduced from this repository (except some intermediate steps for which data are not available due to the large size of the files: GitHub limiting size to 100Mb)
 
 To reproduce the experiments in the paper, two preliminaries steps have to be done:
-1. Clean and format raw input data files of the 18 Anopheles dataset produced by [Neafsey et al., 2015](http://science.sciencemag.org/content/347/6217/1258522.long), located in directory **data/INPUT_DATA**.
+1. Clean and format raw input data files of the 18 Anopheles dataset produced by [Neafsey et al., 2015](http://science.sciencemag.org/content/347/6217/1258522.long), located in directory [data/INPUT_DATA](data/INPUT_DATA).
 2. Execute the pipeline to produce input data for the DeCoSTAR software (corresponding to the pipeline illustrated in the Figure 6 of the article)
     
 These two preliminaries steps are common to the following experiments presented in the paper: 
@@ -46,7 +46,7 @@ These two preliminaries steps are common to the following experiments presented 
 
  by producing a more conservative genome assembly with the assembly tool minia with two different reads sampling (50% and 100%). This validation step is presented int the section "Validation of the ADseq algorithm for extant scaffolding" of our paper and the validation pipeline is illustrated in the Figure 12.
 
-The **doc/** directory contains only one file: **18Anopheles_sequencing_data.ods**. This document gives informations about sequencing data availbale for the 18 Anopheles species of the dataset. 
+The [doc](doc) directory contains only one file: [18Anopheles_sequencing_data.ods](doc/18Anopheles_sequencing_data.ods). This document gives informations about sequencing data availbale for the 18 Anopheles species of the dataset. 
 
 In the following, we describe the different directories present in this GitHub repository. 
 
@@ -86,12 +86,12 @@ bin
 └── software_libraries/  
 ```
 
-The directory **bin/** contains the softwares and scripts that have been used and developed to process raw input data of the 18 Anopheles dataset (mainly produced by [Neafsey et al., 2015](http://science.sciencemag.org/content/347/6217/1258522.long), located in directory **data/INPUT_DATA** and described in section **data/** directory to produce results present in the paper.
+The directory [bin](bin) contains the softwares and scripts that have been used and developed to process raw input data of the 18 Anopheles dataset (mainly produced by [Neafsey et al., 2015](http://science.sciencemag.org/content/347/6217/1258522.long), located in directory [data/INPUT\_DATA](data/INPUT_DATA) and described in section [data](data) directory to produce results present in the paper.
 
-* The directory **bin/software_libraries** contains the libraries and the executive files of softwares (such as DeCoSTAR, BESST, minia, SAMtools, ...) that have been used in the experiments of our paper. To reproduce the results present in this repository it is important to uncompressed zipped directories present in directory "bin/software_libraries".
-* The directory **bin/scripts** contains all scripts use to produce results of  our paper. The different scripts have to be executed in a certain order to reproduce the results form input raw data files present in directory **data/INPUT_DATA** (cf section **"data/ directory**):
+* The directory [bin/software\_libraries](bin/software_libraries) contains the libraries and the executive files of softwares (such as DeCoSTAR, BESST, minia, SAMtools, ...) that have been used in the experiments of our paper. To reproduce the results present it is important to uncompressed zipped directories present in directory "bin/software\_libraries".
+* The directory [bin/scripts](bin/scripts) contains all scripts use to produce results of  our paper. The different scripts have to be executed in a certain order to reproduce the results form input raw data files present in directory [data/INPUT\_DATA](data/INPUT_DATA) (cf section ["data/" directory](#"data/"-directory)):
 
-    1. Execute the script **bin/scripts/clean_RAW_DATA/clean_INPUT_DATA.sh** that uses two scripts present in directory **bin/scripts/clean_RAW_DATA/code** to clean raw input data and format them in standard format use by the pipeline that will produce input data for the DeCoSTAR software.
+    1. Execute the script [bin/scripts/clean_RAW_DATA/clean_INPUT_DATA.sh](bin/scripts/clean_RAW_DATA/clean_INPUT_DATA.sh) that uses two scripts present in directory [bin/scripts/clean_RAW_DATA/code](bin/scripts/clean_RAW_DATA/code) to clean raw input data and format them in standard format use by the pipeline that will produce input data for the DeCoSTAR software.
     
     2. Use the pipeline to produce input data for DeCoSTAR (available in the GitHub repository [DeCoSTAR_pipeline](https://github.com/YoannAnselmetti/DeCoSTAR_pipeline)) that will generate, from the files present in the **data/INPUT_DATA/** directory, the input data for the DeCoSTAR software that will be stored in the directory **data/**. This pipeline contains all the steps illustrate in Figure 6 of our paper. However some data (like data sequencing files (FASTQ format)) are not available due to excessive size of the files. For now the pipeline doesn't allow to execute the pipeline to infer gene trees with RAxML and profileNJ and the pipeline to produce scaffolding adjacencies with BESST (They have to be implemented in snakemake to be executable on a cluster with SGE architecture). Shortly, the **DeCoSTAR_pipeline** GitHub repository will get further developments to allow a full run of DeCoSTAR (input data production for DeCoSTAR, DeCoSTAR execution, linearization of adjacencies predictions and computation of graph/figures statistics). 
     
