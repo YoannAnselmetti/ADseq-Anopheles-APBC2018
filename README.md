@@ -86,14 +86,14 @@ bin
 └── software_libraries/  
 ```
 
-The directory [bin](bin) contains the softwares and scripts that have been used and developed to process raw input data of the 18 Anopheles dataset (mainly produced by [Neafsey et al., 2015](http://science.sciencemag.org/content/347/6217/1258522.long), located in directory [data/INPUT\_DATA](data/INPUT_DATA) and described in section [data](data) directory to produce results present in the paper.
+The directory [bin](bin) contains the softwares and scripts that have been used and developed to process raw input data of the 18 Anopheles dataset (mainly produced by [Neafsey et al., 2015](http://science.sciencemag.org/content/347/6217/1258522.long), located in directory [data/INPUT\_DATA](data/INPUT_DATA) and described in section ["data/" directory](#"data/"-directory) directory to produce results present in the paper.
 
 * The directory [bin/software\_libraries](bin/software_libraries) contains the libraries and the executive files of softwares (such as DeCoSTAR, BESST, minia, SAMtools, ...) that have been used in the experiments of our paper. To reproduce the results present it is important to uncompressed zipped directories present in directory "bin/software\_libraries".
 * The directory [bin/scripts](bin/scripts) contains all scripts use to produce results of  our paper. The different scripts have to be executed in a certain order to reproduce the results form input raw data files present in directory [data/INPUT\_DATA](data/INPUT_DATA) (cf section ["data/" directory](#"data/"-directory)):
 
-    1. Execute the script [bin/scripts/clean_RAW_DATA/clean_INPUT_DATA.sh](bin/scripts/clean_RAW_DATA/clean_INPUT_DATA.sh) that uses two scripts present in directory [bin/scripts/clean_RAW_DATA/code](bin/scripts/clean_RAW_DATA/code) to clean raw input data and format them in standard format use by the pipeline that will produce input data for the DeCoSTAR software.
+    1. Execute the script [clean\_INPUT\_DATA.sh](bin/scripts/clean_RAW_DATA/clean_INPUT_DATA.sh) that uses two scripts present in directory [bin/scripts/clean\_RAW\_DATA/code](bin/scripts/clean_RAW_DATA/code) to clean raw input data and format them in standard format use by the pipeline that will produce input data for the DeCoSTAR software.
     
-    2. Use the pipeline to produce input data for DeCoSTAR (available in the GitHub repository [DeCoSTAR\_pipeline](https://github.com/YoannAnselmetti/DeCoSTAR_pipeline)) that will generate, from the files present in the [data/INPUT\_DATA](data/INPUT_DATA) directory, the input data for the DeCoSTAR software that will be stored in the directory *data/*. This pipeline contains all the steps illustrate in Figure 6 of our paper. However some data (like data sequencing files (FASTQ format)) are not available due to excessive size of the files. For now the pipeline doesn't allow to execute the pipeline to infer gene trees with RAxML and profileNJ and the pipeline to produce scaffolding adjacencies with BESST (They have to be implemented in snakemake to be executable on a cluster with SGE architecture). Shortly, the **DeCoSTAR_pipeline** GitHub repository will get further developments to allow a full run of DeCoSTAR (input data production for DeCoSTAR, DeCoSTAR execution, linearization of adjacencies predictions and computation of graph/figures statistics). 
+    2. Use the pipeline to produce input data for DeCoSTAR (available in the GitHub repository [DeCoSTAR\_pipeline](https://github.com/YoannAnselmetti/DeCoSTAR_pipeline)) that will generate, from the files present in the [data/INPUT\_DATA](data/INPUT_DATA) directory, the input data for the DeCoSTAR software that will be stored in the directory *data/*. This pipeline contains all the steps illustrate in Figure 6 of our paper. However some data (like data sequencing files (FASTQ format)) are not available due to excessive size of the files. For now the pipeline doesn't allow to execute the pipeline to infer gene trees with RAxML and profileNJ and the pipeline to produce scaffolding adjacencies with BESST (They have to be implemented in snakemake to be executable on a cluster with SGE architecture). Shortly, the **DeCoSTAR\_pipeline** GitHub repository will get further developments to allow a full run of DeCoSTAR (input data production for DeCoSTAR, DeCoSTAR execution, linearization of adjacencies predictions and computation of graph/figures statistics). 
     
     3. The directory [bin/scripts/validation\_ADseq](bin/scripts/validation_ADseq) contains scripts developed to validate scaffolding ability of the algorithm ADseq (cf subsection "Validation of the ADseq algorithm for extant scaffolding" of the paper). The validation is composed of 6 experiments corresponding to the 3 species (for which genome fragmentation has been simulated) and the two reads sampling use for the 3 species. This validation process is divided in 4 parts:
 
@@ -135,7 +135,7 @@ data/INPUT_DATA/
 └── unrooted_raw_trees.nwk  
 ```
 
-The [data/INPUT\_DATA](data/INPUT_DATA) directory contains all input data available for the 18 Anopheles dataset mainly produced by [Neafsey et al., 2015](http://science.sciencemag.org/content/347/6217/1258522.long). Among the 18 Anopheles genomes, 4 have no paired sequencing data available (in **bold**) to produce scaffolding adjacencies with BESST for the ADseq algorithm. For more details on sequencing data available see document [18Anopheles_sequencing_data.ods](doc/18Anopheles_sequencing_data.ods):
+The [data/INPUT\_DATA](data/INPUT_DATA) directory contains all input data available for the 18 Anopheles dataset mainly produced by [Neafsey et al., 2015](http://science.sciencemag.org/content/347/6217/1258522.long). Among the 18 Anopheles genomes, 4 have no paired sequencing data available (species name in **bold**) to produce scaffolding adjacencies with BESST for the ADseq algorithm. For more details on sequencing data available see document [18Anopheles_sequencing_data.ods](doc/18Anopheles_sequencing_data.ods):
 
 * Anopheles_albimanus
 * Anopheles_arabiensis
@@ -226,13 +226,13 @@ data/GENE_TREES
 The [data/GENE\_TREES](data/GENE_TREES) directory contains the gene trees files produced for the 18 Anopheles dataset.
 The directory contains 6 files:
 
-* **trees_DeCoSTAR_WGtopo.nwk**: gene trees used as input of DeCoSTAR with the species tree topology WG
-* **trees_DeCoSTAR_Xtopo.nwk**: gene trees used as input of DeCoSTAR with the species tree topology
-
+* **trees\_DeCoSTAR\_WGtopo.nwk**: gene trees used as input of DeCoSTAR with the species tree topology WG
+* **trees\_DeCoSTAR\_Xtopo.nwk**: gene trees used as input of DeCoSTAR with the species tree topology X
+* **unrooted\_trees_filtered.nwk**: initial gene trees obtained from raw gene trees ([unrooted\_raw\_trees.nwk](data/INPUT_DATA/unrooted_raw_trees.nwk)) after discarding gene trees containing included genes
 It contains also 2 directories:
 
-    * **CDS/bootstrap_support/RAxML** contains gene trees that have been produced with the maximum likelihood inference gene tree tool RAxML.
-    * **CDS/bootstrap_support/profileNJ** contains gene trees that have been produced with the refinement gene tree tool profileNJ.
+* **CDS/bootstrap\_support/RAxML** contains gene trees that have been produced with the maximum likelihood inference gene tree tool RAxML.
+* **CDS/bootstrap\_support/profileNJ** contains gene trees that have been produced with the refinement gene tree tool profileNJ.
 
 
 ### "data/DATA_SEQ" directory
@@ -246,14 +246,14 @@ data/DATA_SEQ
         └── ALL  
 ```
 
-The **data/DATA_SEQ** directory contains scaffolding results obtained with the scaffolding tool BESST. The directory contains one file **orientation_libraries**  with the information on the orientation of paired reads for the different SRX (cf file **doc/18Anopheles_sequencing_data.ods**) that are necessary to execute BESST. The FASTQ and BAM files are not present in this repository cause they take too much place (several To of space memory).
-The directory **data/DATA_SEQ/SCAFFOLDING/BESST-2.2.6** contains two directories:
+The [data/DATA\_SEQ](data/DATA_SEQ) directory contains scaffolding results obtained with the scaffolding tool BESST. The directory contains one file [orientation\_libraries](data/DATA_SEQ/orientation_libraries) with the information on the orientation of paired reads for the different SRX (cf file [18Anopheles\_sequencing\_data.ods](doc/18Anopheles_sequencing_data.ods)) that are necessary to execute BESST. The FASTQ and BAM files are not present in this repository cause they take too much place (several To of space memory).
+The directory [data/DATA\_SEQ/SCAFFOLDING/BESST-2.2.6](data/DATA_SEQ/SCAFFOLDING/BESST-2.2.6) contains two directories:
 
-    * **Bowtie2_ALL/TRIMMOMATIC3/ALL/** contains scaffolding results of BESST on the 14 Anopheles reference genomes for which sequencing data are available.
-    * **Bowtie_k50/TRIMMOMATIC3/blastn** contains scaffolding results of BESST on the de novo genome assemblies produced with minia to validate the ability of ADseq to scaffold genomes with 50% of the reads (directory **50pourc**) and with all reads (directory **ALL**).
+* **Bowtie2\_ALL/TRIMMOMATIC3/ALL/** contains scaffolding results of BESST on the 14 Anopheles reference genomes for which sequencing data are available.
+* **Bowtie\_k50/TRIMMOMATIC3/blastn** contains scaffolding results of BESST on the de novo genome assemblies produced with minia to validate the ability of ADseq to scaffold genomes with 50% of the reads (directory [50pourc](Bowtie_k50/TRIMMOMATIC3/blastn/50pourc)) and with all reads (directory [ALL](Bowtie_k50/TRIMMOMATIC3/blastn/ALL)).
 
 
-### "data/data_DeCoSTAR" directory
+### "data/data\_DeCoSTAR" directory
 ```
 data/data_DeCoSTAR/  
 ├── CTG_file  
@@ -267,17 +267,17 @@ data/data_DeCoSTAR/
 └── scaff_BESST_DeCoSTAR  
 ```
 
-The **data/data_DeCoSTAR/** directory contains input data files to execute DeCoSTAR on the 18 Anopheles dataset:
+The [data/data\_DeCoSTAR](data/data_DeCoSTAR) directory contains input data files to execute DeCoSTAR on the 18 Anopheles dataset:
 
-* The **CTG_file** contains informations on all contigs/scaffolds considered as input of DeCoSTAR for the 18 Anopheles species.
-* The **GENE_file** contains informations on all genes considered as input of DeCoSTAR for the 18 Anopheles species.
-* The **scaff_BESST_ALL_3_TRIMMOMATIC3** contains the scaffolding adjacencies between contigs/scaffolds of reference genome assemblies computed by BESST with 2 link scores for the 18 Anopheles species.
-* The **scaff_BESST_ALL_DeCoSTAR** contains the scaffolding adjacencies between contigs/scaffolds of computed by BESST with 2 link scores between contigs/scaffolds considered as input of DeCoSTAR.
-* The **data/data_DeCoSTAR/decostar/** directory contains files use in the parameter files to execute DeCoSTAR: The **adjacencies.txt** file contains all adjacencies considered by DeCoSTAR obtained from the files **data/data_DeCoSTAR/GENE_file** and **data/data_DeCoSTAR/scaff_BESST_DeCoSTAR**. The 3 directories: **WGtopo+scaff**, **Xtopo_pNJ** and **Xtopo_RAW** contains parameters files and gene trees to apply DeCoSTAR for the 4 different experiments described in our paper.
+* The **CTG\_file** contains informations on all contigs/scaffolds considered as input of DeCoSTAR for the 18 Anopheles species.
+* The **GENE\_file** contains informations on all genes considered as input of DeCoSTAR for the 18 Anopheles species.
+* The **scaff\_BESST\_ALL\_3\_TRIMMOMATIC3** contains the scaffolding adjacencies between contigs/scaffolds of reference genome assemblies computed by BESST with 2 link scores for the 18 Anopheles species.
+* The **scaff_BESST\_ALL\_DeCoSTAR** contains the scaffolding adjacencies between contigs/scaffolds of computed by BESST with 2 link scores between contigs/scaffolds considered as input of DeCoSTAR.
+* The **data/data\_DeCoSTAR/decostar/** directory contains files use in the parameter files to execute DeCoSTAR: The **adjacencies.txt** file contains all adjacencies considered by DeCoSTAR obtained from the files **data/data\_DeCoSTAR/GENE\_file** and **data/data\_DeCoSTAR/scaff\_BESST\_DeCoSTAR**. The 3 directories: **WGtopo+scaff**, **Xtopo\_pNJ** and **Xtopo\_RAW** contains parameters files and gene trees to apply DeCoSTAR for the 4 different experiments described in our paper.
 
 
 
-### "data/validation_ADseq" directory
+### "data/validation\_ADseq" directory
 ```
 data/validation_ADseq/  
 ├── BLASTn  
@@ -297,7 +297,7 @@ data/validation_ADseq/
     └── Anopheles_dirus/  
 ```
 
-The **data/validation_ADseq/** directory contains input data files to execute DeCoSTAR with the ADseq and the ARt-DeCo algorithms to validate the ability of the ADseq algorithm to scaffold genomes. The directory is composed of 4 directories:
+The **data/validation\_ADseq/** directory contains input data files to execute DeCoSTAR with the ADseq and the ARt-DeCo algorithms to validate the ability of the ADseq algorithm to scaffold genomes. The directory is composed of 4 directories:
 
 * The **kmergenie/** directory contains results of the tool Kmergenie to define the best kmer size to assemble reads sampling with minia genome assembly tool.
 * The **FASTA/SCAFF** directory contains genome assemblies in the FASTA file format for the 3 species selected for the validation steps obtain with minia (**minia/** directory) and after BLASTn gene annotation (**blastn/** directory).
@@ -322,22 +322,22 @@ results
         └── stats/blastn/  
 ```
 
-The **results/** directory contains results produced after DeCoSTAR execution.
+The [results](results) directory contains results produced after DeCoSTAR execution.
 
-The **results/decostar** directory contains the results of DeCoSTAR with the algorithm ADseq on the 18 Anopheles dataset for the 4 conditions described in the paper:
+The [results/decostar](results/decostar) directory contains the results of DeCoSTAR with the algorithm ADseq on the 18 Anopheles dataset for the 4 conditions described in the paper:
 
 * **Xtopo+scaff**: X species tree topology with scaffolding adjacencies and profileNJ trees
 * **WGtopo+scaff**: WG species tree topology with scaffolding adjacencies and profileNJ trees
 * **Xtopo-scaff**: X species tree topology without scaffolding adjacencies and profileNJ trees
-* **Xtopo_RAW**: X species tree topology with scaffolding adjacencies and original gene trees
+* **Xtopo\_RAW**: X species tree topology with scaffolding adjacencies and original gene trees
 
-The **results/validation_ADseq** directory contains the results of DeCoSTAR with the algorithms ADseq and ARt-DeCo for the 6 experiments with a fragmented genome for the validation of the scaffolding ability of ADseq algorithm, where there is one directory by species with genome fragmentation simulation (each containing 2 directories ("50pourc" and "ALL") for the two reads sampling:
+The [results/validation\_ADseq](results/validation_ADseq) directory contains the results of DeCoSTAR with the algorithms ADseq and ARt-DeCo for the 6 experiments with a fragmented genome for the validation of the scaffolding ability of ADseq algorithm, where there is one directory by species with genome fragmentation simulation (each containing 2 directories ("50pourc" and "ALL") for the two reads sampling:
 
 * Aalb: A. albimanus
 * Aara: A. arabiensis
 * Adir: A. dirus
 
-The **spi_20/stats/blastn/** directory contains files on precision and recall statistics for the 6 fragmented genomes experiments for the 3 methods compared (ADseq, ARt-DeCo and BESST) and files to produce Venn diagrams to compare scaffolding results between the 3 methods.
+The [spi\_20/stats/blastn](results/validation_ADseq/spi_20/stats/blastn/) directory contains files on precision and recall statistics for the 6 fragmented genomes experiments for the 3 methods compared (ADseq, ARt-DeCo and BESST) and files to produce Venn diagrams to compare scaffolding results between the 3 methods.
 
 It is important to note that results in this repository are very slightly different from the results in the paper due to the fact that to produce this repository, results have been reproduced but the sampling of solutions by DeClone is not the same between two runs then results can slightly diverged. This is the case in this repository but conclusions.
 More over, for the results in Figure the DeClone support threshold used for some 
@@ -356,7 +356,7 @@ figures
 └── Venn_diagram  
 ```
 
-The directory **figures/** contains statistics graphs and figures present in the paper (svg or pdf) and produced from files of **data/** directory and **results/** directory. We allow re-use of these figures and ask re-user to cite our article. 
+The directory [figures](figures) contains statistics graphs and figures present in the paper (svg or pdf) and produced from files of [data](data) directory and [results](results) directory. We allow re-use of these figures and ask re-user to cite our article. 
 
 
 
