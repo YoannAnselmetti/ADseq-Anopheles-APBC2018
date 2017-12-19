@@ -135,26 +135,26 @@ data/INPUT_DATA/
 └── unrooted_raw_trees.nwk  
 ```
 
-The **data/INPUT_DATA** directory contains all input data available for the 18 Anopheles dataset mainly produced by [Neafsey et al., 2015](http://science.sciencemag.org/content/347/6217/1258522.long). Among the 18 Anopheles genomes, 4 have no paired sequencing data available (annotate with "X") to produce scaffolding adjacencies with BESST for the ADseq algorithm. For more details on sequencing data available see document **doc/18Anopheles_sequencing_data.ods**:
+The **data/INPUT_DATA** directory contains all input data available for the 18 Anopheles dataset mainly produced by [Neafsey et al., 2015](http://science.sciencemag.org/content/347/6217/1258522.long). Among the 18 Anopheles genomes, 4 have no paired sequencing data available (in **bold**) to produce scaffolding adjacencies with BESST for the ADseq algorithm. For more details on sequencing data available see document **doc/18Anopheles_sequencing_data.ods**:
 
 * Anopheles_albimanus
 * Anopheles_arabiensis
 * Anopheles_atroparvus
 * Anopheles_christyi
 * Anopheles_culicifacies
-* Anopheles_darlingi        X
+* **Anopheles_darlingi**
 * Anopheles_dirus
 * Anopheles_epiroticus
 * Anopheles_farauti
 * Anopheles_funestus
-* Anopheles_gambiae     X
+* **Anopheles_gambiae**
 * Anopheles_maculatus
 * Anopheles_melas
 * Anopheles_merus
 * Anopheles_minimus
-* Anopheles_quadriannulatus X
+* **Anopheles_quadriannulatus**
 * Anopheles_sinensis
-* Anopheles_stephensi       X
+* **Anopheles_stephensi**
 
 The gene annotation files in non-standard GFF format (directory **data/INPUT_DATA/ORIGINAL_GFF**), the unrooted gene trees in newick format (directory **data/INPUT_DATA/OG_CDS_newtrees**) and the CDS (directory **data/INPUT_DATA/FASTA/CDS**) for the 18 Anopheles species have been obtained from Robert M. Waterhouse. The 18 Anopheles reference genome assemblies have been obtained from [VectorBase](https://www.vectorbase.org/downloads) (directory **data/INPUT_DATA/FASTA/SCAFF**). Original GFF files have been processed with script **bin/scripts/clean_RAW_DATA/clean_INPUT_DATA.sh** to format them to the standard GFF fie format and have been stored in the directory **data/INPUT_DATA/GFF**.  
 There are also 4 files in **data/INPUT_DATA**:
