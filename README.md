@@ -93,16 +93,16 @@ The directory [bin](bin) contains the softwares and scripts that have been used 
 
     1. Execute the script [bin/scripts/clean_RAW_DATA/clean_INPUT_DATA.sh](bin/scripts/clean_RAW_DATA/clean_INPUT_DATA.sh) that uses two scripts present in directory [bin/scripts/clean_RAW_DATA/code](bin/scripts/clean_RAW_DATA/code) to clean raw input data and format them in standard format use by the pipeline that will produce input data for the DeCoSTAR software.
     
-    2. Use the pipeline to produce input data for DeCoSTAR (available in the GitHub repository [DeCoSTAR_pipeline](https://github.com/YoannAnselmetti/DeCoSTAR_pipeline)) that will generate, from the files present in the **data/INPUT_DATA/** directory, the input data for the DeCoSTAR software that will be stored in the directory **data/**. This pipeline contains all the steps illustrate in Figure 6 of our paper. However some data (like data sequencing files (FASTQ format)) are not available due to excessive size of the files. For now the pipeline doesn't allow to execute the pipeline to infer gene trees with RAxML and profileNJ and the pipeline to produce scaffolding adjacencies with BESST (They have to be implemented in snakemake to be executable on a cluster with SGE architecture). Shortly, the **DeCoSTAR_pipeline** GitHub repository will get further developments to allow a full run of DeCoSTAR (input data production for DeCoSTAR, DeCoSTAR execution, linearization of adjacencies predictions and computation of graph/figures statistics). 
+    2. Use the pipeline to produce input data for DeCoSTAR (available in the GitHub repository [DeCoSTAR\_pipeline](https://github.com/YoannAnselmetti/DeCoSTAR_pipeline)) that will generate, from the files present in the [data/INPUT\_DATA](data/INPUT_DATA) directory, the input data for the DeCoSTAR software that will be stored in the directory *data/*. This pipeline contains all the steps illustrate in Figure 6 of our paper. However some data (like data sequencing files (FASTQ format)) are not available due to excessive size of the files. For now the pipeline doesn't allow to execute the pipeline to infer gene trees with RAxML and profileNJ and the pipeline to produce scaffolding adjacencies with BESST (They have to be implemented in snakemake to be executable on a cluster with SGE architecture). Shortly, the **DeCoSTAR_pipeline** GitHub repository will get further developments to allow a full run of DeCoSTAR (input data production for DeCoSTAR, DeCoSTAR execution, linearization of adjacencies predictions and computation of graph/figures statistics). 
     
-    3. The directory **bin/scripts/validation_ADseq/** contains scripts developed to validate scaffolding ability of the algorithm ADseq (cf subsection "Validation of the ADseq algorithm for extant scaffolding" of the paper). The validation is composed of 6 experiments corresponding to the 3 species (for which genome fragmentation has been simulated) and the two reads sampling use for the 3 species. This validation process is divided in 4 parts:
+    3. The directory [bin/scripts/validation\_ADseq](bin/scripts/validation_ADseq) contains scripts developed to validate scaffolding ability of the algorithm ADseq (cf subsection "Validation of the ADseq algorithm for extant scaffolding" of the paper). The validation is composed of 6 experiments corresponding to the 3 species (for which genome fragmentation has been simulated) and the two reads sampling use for the 3 species. This validation process is divided in 4 parts:
 
-        1. produce new genome assembly with minia for the 6 experiments and scaffold minia (with script **bin/scripts/validation_ADseq/01-run_ALL_exp_minia.sh** using scripts present in directory **bin/scripts/validation_ADseq/minia**). This script corresponds to the steps 1/, 2/ and 3/ of Figure 12 of our paper. These steps are not reproducible from this repository due to missing data (corresponding to the sequencing data in the FASTQ format that are too heavy to be stored on a GitHub repository). 
-        2. map minia contigs on reference genome with BLASTn for the 6 experiments to transfer gene annotation from the reference genome to the minia contigs and produce input data files for DeCoSTAR (with script **bin/scripts/validation_ADseq/02-run_ALL_exp_BLASTn.sh** using scripts present in directory **bin/scripts/validation_ADseq/BLASTn**). This script corresponds to the steps 4/ and 5/ of Figure 12. However, the script doesn't contain the step to execute BESST on BLASTn scaffolds to compute scaffolding adjacencies on fragmentated genomes (step 5/ of Figure 12). The scaffolding with BESST has to be done after the script **bin/scripts/validation_ADseq/BLASTn/02-filter_BLASTn_results** and before the script **bin/scripts/validation_ADseq/BLASTn/06a-create_scaff_adj_prefile_BLASTn.py**, however, the scaffolding files produced by BESST for this step are available in directory **data/DATA_SEQ/SCAFFOLDING/BESST-2.2.6/Bowtie2_k50**
-        3. execute DeCoSTAR and linearize adjacencies predictions (with script **bin/scripts/validation_ADseq/03-run_decostar_validation_and_linearization.sh** using scripts present in directory **bin/scripts/validation_ADseq/decostar**)
-        4. compare adjacencies predictions of ARt-DeCo, ADseq and BESST to the reference genome (precision and recall statistics) and compare adjacencies results between the 3 methods: Venn diagrams (with script **bin/scripts/validation_ADseq/04-stats_graphics_validation.sh** using scripts present in directory **bin/scripts/validation_ADseq/stats**) 
+        1. produce new genome assembly with minia for the 6 experiments and scaffold minia (with script [01-run_ALL_exp_minia.sh](bin/scripts/validation_ADseq/01-run_ALL_exp_minia.sh) using scripts present in directory [bin/scripts/validation_ADseq/minia](bin/scripts/validation_ADseq/minia)). This script corresponds to the steps 1/, 2/ and 3/ of Figure S7 of our paper. These steps are not reproducible from this repository due to missing data (corresponding to the sequencing data in the FASTQ format that are too heavy to be stored on a GitHub repository). 
+        2. map minia contigs on reference genome with BLASTn for the 6 experiments to transfer gene annotation from the reference genome to the minia contigs and produce input data files for DeCoSTAR (with script [02-run_ALL_exp_BLASTn.sh](bin/scripts/validation_ADseq/02-run_ALL_exp_BLASTn.sh) using scripts present in directory [bin/scripts/validation_ADseq/BLASTn](bin/scripts/validation_ADseq/BLASTn)). This script corresponds to the steps 4/ and 5/ of Figure S7. However, the script doesn't contain the step to execute BESST on BLASTn scaffolds to compute scaffolding adjacencies on fragmentated genomes (step 5/ of Figure S7). The scaffolding with BESST has to be done after the script [02-filter_BLASTn_results.py](bin/scripts/validation_ADseq/BLASTn/02-filter_BLASTn_results.py) and before the script [bin/scripts/validation_ADseq/BLASTn/06a-create_scaff_adj_prefile_BLASTn.py](bin/scripts/validation_ADseq/BLASTn/06a-create_scaff_adj_prefile_BLASTn.py). We stored the scaffolding files produced by BESST for this step in directory [data/DATA_SEQ/SCAFFOLDING/BESST-2.2.6/Bowtie2_k50](data/DATA_SEQ/SCAFFOLDING/BESST-2.2.6/Bowtie2_k50)
+        3. execute DeCoSTAR and linearize adjacencies predictions (with script [03-run_decostar_validation_and_linearization.sh](bin/scripts/validation_ADseq/03-run_decostar_validation_and_linearization.sh) using scripts present in directory [bin/scripts/validation_ADseq/decostar](bin/scripts/validation_ADseq/decostar))
+        4. compare adjacencies predictions of ARt-DeCo, ADseq and BESST to the reference genome (precision and recall statistics) and compare adjacencies predictions accuracy between the 3 methods: Venn diagrams (with script **bin/scripts/validation_ADseq/04-stats_graphics_validation.sh** using scripts present in directory **bin/scripts/validation_ADseq/stats**) 
 
-    4. The directory **bin/scripts/post_decostar** contains the script **linearize_generate_stats_decostar.sh** that linearizes adjacencies predicted by DeCoSTAR and compute statistics on genome rearrangements and scaffolding inferred by DeCoSTAR with scripts present in directory **bin/scripts/post_decostar/code**. It contains also the directory **compute_stats_graph/** that allows to compute all graphs and figures on the statistics of the results of DeCoSTAR present in the paper. 
+    4. The directory [bin/scripts/post\_decostar](bin/scripts/post_decostar) contains the script [linearize\_generate\_stats\_decostar.sh](bin/scripts/post_decostar/linearize_generate_stats_decostar.sh) that linearizes adjacencies predicted by DeCoSTAR and compute statistics on genome rearrangements and scaffolding inferred by DeCoSTAR with scripts present in directory [bin/scripts/post\_decostar/code](bin/scripts/post_decostar/code). It contains also the directory [compute\_stats\_graph](bin/scripts/post_decostar/compute_stats_graph) that allows to compute all graphs and figures on the statistics of the results of DeCoSTAR present in the paper. 
 
 
 
@@ -118,7 +118,7 @@ data
 └── validation_ADseq  
 ```
 
-The **data/** directory contains all files used to produce input data to apply the DeCoSTAR software on the 18 Anopheles dataset.
+The [data](data) directory contains all files used to produce input data to apply the DeCoSTAR software on the 18 Anopheles dataset.
 
 
 ### "data/INPUT_DATA/" directory
@@ -135,7 +135,7 @@ data/INPUT_DATA/
 └── unrooted_raw_trees.nwk  
 ```
 
-The **data/INPUT_DATA** directory contains all input data available for the 18 Anopheles dataset mainly produced by [Neafsey et al., 2015](http://science.sciencemag.org/content/347/6217/1258522.long). Among the 18 Anopheles genomes, 4 have no paired sequencing data available (in **bold**) to produce scaffolding adjacencies with BESST for the ADseq algorithm. For more details on sequencing data available see document **doc/18Anopheles_sequencing_data.ods**:
+The [data/INPUT\_DATA](data/INPUT_DATA) directory contains all input data available for the 18 Anopheles dataset mainly produced by [Neafsey et al., 2015](http://science.sciencemag.org/content/347/6217/1258522.long). Among the 18 Anopheles genomes, 4 have no paired sequencing data available (in **bold**) to produce scaffolding adjacencies with BESST for the ADseq algorithm. For more details on sequencing data available see document [18Anopheles_sequencing_data.ods](doc/18Anopheles_sequencing_data.ods):
 
 * Anopheles_albimanus
 * Anopheles_arabiensis
@@ -156,18 +156,18 @@ The **data/INPUT_DATA** directory contains all input data available for the 18 A
 * Anopheles_sinensis
 * **Anopheles_stephensi**
 
-The gene annotation files in non-standard GFF format (directory **data/INPUT_DATA/ORIGINAL_GFF**), the unrooted gene trees in newick format (directory **data/INPUT_DATA/OG_CDS_newtrees**) and the CDS (directory **data/INPUT_DATA/FASTA/CDS**) for the 18 Anopheles species have been obtained from Robert M. Waterhouse. The 18 Anopheles reference genome assemblies have been obtained from [VectorBase](https://www.vectorbase.org/downloads) (directory **data/INPUT_DATA/FASTA/SCAFF**). Original GFF files have been processed with script **bin/scripts/clean_RAW_DATA/clean_INPUT_DATA.sh** to format them to the standard GFF fie format and have been stored in the directory **data/INPUT_DATA/GFF**.  
-There are also 4 files in **data/INPUT_DATA**:
+The gene annotation files in non-standard GFF format (directory [data/INPUT\_DATA/ORIGINAL\_GFF](data/INPUT_DATA/ORIGINAL_GFF)), the unrooted gene trees in newick format (directory [data/INPUT\_DATA/OG\_CDS\_newtrees](data/INPUT_DATA/OG_CDS_newtrees)) and the CDS (directory [data/INPUT\_DATA/FASTA/CDS](data/INPUT_DATA/FASTA/CDS)) for the 18 Anopheles species have been obtained from Robert M. Waterhouse. The 18 Anopheles reference genome assemblies have been obtained from [VectorBase](https://www.vectorbase.org/downloads) (directory [data/INPUT\_DATA/FASTA/SCAFF](data/INPUT_DATA/FASTA/SCAFF)). Original GFF files have been processed with script [clean_INPUT_DATA.sh](bin/scripts/clean_RAW_DATA/clean_INPUT_DATA.sh) to format them to the standard GFF fie format and have been stored in the directory [data/INPUT\_DATA/GFF](data/INPUT_DATA/GFF).  
+There are also 4 files in [data/INPUT\_DATA](data/INPUT_DATA):
 
-* **18Anopheles_species**: handmade file associating species name with number of chromosome expected
-* **Anopheles_species_tree_X_topology.nwk**: 18 Anopheles species tree with the X chromosome topology (X)
-* **Anopheles_species_tree_WG_topology.nwk**: 18 Anopheles species tree with the Whole Genome topology (WG)
-* **name_geneID_18Anopheles**: handmade file associating species name with species ID
-* **unrooted_raw_trees.nwk**; contains the gene trees after cleaning of gene trees available in the directory **data/INPUT_DATA/OG_CDS_newtrees** with the script **bin/scripts/clean_RAW_DATA/clean_INPUT_DATA.sh**
+* **18Anopheles\_species**: handmade file associating species name with number of chromosome expected
+* **Anopheles\_species\_tree\_X\_topology.nwk**: 18 Anopheles species tree with the X chromosome topology (X)
+* **Anopheles\_species\_tree\_WG\_topology.nwk**: 18 Anopheles species tree with the Whole Genome topology (WG)
+* **name\_geneID\_18Anopheles**: handmade file associating species name with species ID
+* **unrooted\_raw\_trees.nwk**; contains the gene trees after cleaning of gene trees available in the directory [data/INPUT\_DATA/OG\_CDS\_newtrees](data/INPUT_DATA/OG_CDS_newtrees) with the script [clean_INPUT_DATA.sh](bin/scripts/clean_RAW_DATA/clean_INPUT_DATA.sh)
 
 
 
-### "data/GFF_to_GENE_files/" directory
+### "data/GFF\_to\_GENE\_files/" directory
 ```
 data/GFF_to_GENE_files  
 ├──filtered_GENE  
@@ -178,14 +178,14 @@ data/GFF_to_GENE_files
 └── with_filter  
 ```
 
-The **data/GFF_to_GENE_files/** directory contains intermediate file to transform GFF files in GENE file.
-Initial GFF files located in directory **data/INPUT_DATA/GFF** are sorted by gene and exon positions in directory **data/GFF_to_GENE_files/sorted_GFF**. Then, sorted GFF files are transformed in GENE files in directory **data/GFF_to_GENE_files/GENE_file**. They are then sorted in directory **data/GFF_to_GENE_files/sorted_GENE**, sorted GENE files are restricted to genes present in gene trees considered and stored in directory **data/GFF_to_GENE_files/filtered_GENE**. Genes positions are analyzed to produce 3 files are stored in the directory **data/GFF_to_GENE_files/with_filter**:
+The [data/GFF\_to\_GENE\_files](data/GFF_to_GENE_files) directory contains intermediate file to transform GFF files in GENE file.
+Initial GFF files located in directory [data/INPUT\_DATA/GFF](data/INPUT_DATA/GFF) are sorted by gene and exon positions in directory [data/GFF\_to\_GENE\_files/sorted\_GFF](data/GFF_to_GENE_files/sorted_GFF). Then, sorted GFF files are transformed in GENE files in directory [data/GFF\_to\_GENE\_files/GENE\_file](data/GFF_to_GENE_files/GENE_file). They are then sorted in directory [data/GFF\_to\_GENE\_files/sorted\_GENE](data/GFF_to_GENE_files/sorted_GENE), sorted GENE files are restricted to genes present in gene trees considered and stored in directory [data/GFF\_to\_GENE\_files/filtered\_GENE](data/GFF_to_GENE_files/filtered_GENE). Genes positions are analyzed to produce 3 files are stored in the directory [data/GFF\_to\_GENE\_files/with\_filter](data/GFF_to_GENE_files/with_filter):
 
-* **ALL_species_Inclusion_file**: file containing included genes
-* **ALL_species_Overlap_file**: file containing overlapping genes
-* **ALL_species_GENE_file**: file containing non included genes of the 18 Anopheles species
+* **ALL\_species\_Inclusion\_file**: file containing included genes
+* **ALL\_species\_Overlap\_file**: file containing overlapping genes
+* **ALL\_species\_GENE\_file**: file containing non included genes of the 18 Anopheles species
 
-Finally, a last file is produce to add gene family ID to GENE file (**data/GFF_to_GENE_files/with_filter/ALL_species_GENE_file_with_GF**)
+Finally, a last file is produce to add gene family ID to GENE file ([ALL\_species\_GENE\_file\_with\_GF](data/GFF_to_GENE_files/with_filter/ALL_species_GENE_file_with_GF))
 
 
 
@@ -198,13 +198,13 @@ data/FASTA
 └──  GF_FASTA  
 ```
 
-The **FASTA** directory contains data to infer gene trees with the gene tree pipeline inference described in our paper with the refinement gene tree tool profileNJ.
+The [data/FASTA](data/FASTA) directory contains data to infer gene trees with the gene tree pipeline inference described in our paper with the refinement gene tree tool profileNJ.
 
-The directory **data/FASTA/GT_FASTA** contains 1 FASTA files / gene family/tree containing the CDS of the genes belonging to the gene family/tree.
-The **data/FASTA/MSA/CDS** contains two directories:
+The directory [data/FASTA/GT\_FASTA](data/FASTA/GT_FASTA) contains 1 FASTA files / gene family/tree containing the CDS of the genes belonging to the gene family/tree.
+The [data/FASTA/MSA/CDS](data/FASTA/MSA/CDS) contains two directories:
 
-    * **MUSCLE** which contains Multiple Sequence Alignment (MSA) files for each gene family produced with the MSA tool Muscle. 
-    * **Gblocks** which contains selected blocks of multiple sequence alignment produced with the tool Gblocks.
+* [MUSCLE](data/FASTA/MSA/CDS/MUSCLE) which contains Multiple Sequence Alignment (MSA) files for each gene family produced with the MSA tool **Muscle**. 
+* [Gblocks](data/FASTA/MSA/CDS/Gblocks) which contains selected blocks of multiple sequence alignment produced with the tool **Gblocks**.
 
 
 
@@ -223,11 +223,11 @@ data/GENE_TREES
 └── unrooted_trees_filtered.nwk  
 ```
 
-The **data/GENE_TREES** directory contains the gene trees files produced for the 18 Anopheles dataset.
+The [data/GENE\_TREES](data/GENE_TREES) directory contains the gene trees files produced for the 18 Anopheles dataset.
 The directory contains 6 files:
 
-    * **trees_DeCoSTAR_WGtopo.nwk**: gene trees used as input of DeCoSTAR with the species tree topology WG
-    * **trees_DeCoSTAR_Xtopo.nwk**: gene trees used as input of DeCoSTAR with the species tree topology
+* **trees_DeCoSTAR_WGtopo.nwk**: gene trees used as input of DeCoSTAR with the species tree topology WG
+* **trees_DeCoSTAR_Xtopo.nwk**: gene trees used as input of DeCoSTAR with the species tree topology
 
 It contains also 2 directories:
 
