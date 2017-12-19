@@ -1,3 +1,4 @@
+
 Phylogenetic signal from rearrangements in 18 Anopheles species by joint scaffolding extant and ancestral genomes
 =====
 
@@ -13,6 +14,7 @@ git clone https://github.com/YoannAnselmetti/ADseq-Anopheles-APBC2018.git
 
 
 # Repository structure and content
+```
 .  
 ├── bin/  
 ├── data/  
@@ -20,6 +22,7 @@ git clone https://github.com/YoannAnselmetti/ADseq-Anopheles-APBC2018.git
 ├── figures/  
 ├── README.md  
 └── results/  
+```
 
 All experiments presented in our paper can be reproduced from this repository (except some intermediate steps for which data are not available due the large size of the files: GitHub limiting size to 100Mb)
 
@@ -50,6 +53,7 @@ In the following, we describe the different directories present in this GitHub r
 
 
 ## "bin/" directory
+```
 bin  
 ├── scripts  
 │   ├── before_decostar  
@@ -80,6 +84,7 @@ bin
 │       ├── minia/  
 │       └── stats/  
 └── software_libraries/  
+```
 
 The directory **bin/** contains the softwares and scripts that have been used and developed to process raw input data of the 18 Anopheles dataset (mainly produced by [Neafsey et al., 2015](http://science.sciencemag.org/content/347/6217/1258522.long), located in directory **data/INPUT_DATA** and described in section **data/** directory to produce results present in the paper.
 
@@ -102,6 +107,7 @@ The directory **bin/** contains the softwares and scripts that have been used an
 
 
 ## "data/" directory
+```
 data  
 ├── data_DeCoSTAR  
 ├── DATA_SEQ  
@@ -110,11 +116,13 @@ data
 ├── GFF_to_GENE_files  
 ├── INPUT_DATA  
 └── validation_ADseq  
+```
 
 The **data/** directory contains all files used to produce input data to apply the DeCoSTAR software on the 18 Anopheles dataset.
 
 
 ### "data/INPUT_DATA/" directory
+```
 data/INPUT_DATA/  
 ├── 18Anopheles_species  
 ├── Anopheles_species_tree_WG_topology.nwk  
@@ -125,6 +133,7 @@ data/INPUT_DATA/
 ├── OG_CDS_newtrees.tar.gz  
 ├── ORIGINAL_GFF/  
 └── unrooted_raw_trees.nwk  
+```
 
 The **data/INPUT_DATA** directory contains all input data available for the 18 Anopheles dataset mainly produced by [Neafsey et al., 2015](http://science.sciencemag.org/content/347/6217/1258522.long). Among the 18 Anopheles genomes, 4 have no paired sequencing data available (annotate with "X") to produce scaffolding adjacencies with BESST for the ADseq algorithm. For more details on sequencing data available see document **doc/18Anopheles_sequencing_data.ods**:
 
@@ -159,6 +168,7 @@ There are also 4 files in **data/INPUT_DATA**:
 
 
 ### "data/GFF_to_GENE_files/" directory
+```
 data/GFF_to_GENE_files  
 ├──filtered_GENE  
 ├── GENE  
@@ -166,7 +176,7 @@ data/GFF_to_GENE_files
 ├── sorted_GENE  
 ├── sorted_GFF  
 └── with_filter  
-
+```
 
 The **data/GFF_to_GENE_files/** directory contains intermediate file to transform GFF files in GENE file.
 Initial GFF files located in directory **data/INPUT_DATA/GFF** are sorted by gene and exon positions in directory **data/GFF_to_GENE_files/sorted_GFF**. Then, sorted GFF files are transformed in GENE files in directory **data/GFF_to_GENE_files/GENE_file**. They are then sorted in directory **data/GFF_to_GENE_files/sorted_GENE**, sorted GENE files are restricted to genes present in gene trees considered and stored in directory **data/GFF_to_GENE_files/filtered_GENE**. Genes positions are analyzed to produce 3 files are stored in the directory **data/GFF_to_GENE_files/with_filter**:
@@ -180,12 +190,13 @@ Finally, a last file is produce to add gene family ID to GENE file (**data/GFF_t
 
 
 ### "data/FASTA" directory
+```
 data/FASTA  
 ├── MSA/CDS  
 │    ├── Gblocks  
 │    └── MUSCLE  
 └──  GF_FASTA  
-
+```
 
 The **FASTA** directory contains data to infer gene trees with the gene tree pipeline inference described in our paper with the refinement gene tree tool profileNJ.
 
@@ -198,6 +209,7 @@ The **data/FASTA/MSA/CDS** contains two directories:
 
 
 ### "data/GENE_TREES" directory
+```
 data/GENE_TREES
 ├── CDS  
 │   └── bootstrap_support  
@@ -209,7 +221,7 @@ data/GENE_TREES
 ├── trees_DeCoSTAR_WGtopo.nwk  
 ├── trees_DeCoSTAR_Xtopo.nwk  
 └── unrooted_trees_filtered.nwk  
-
+```
 
 The **data/GENE_TREES** directory contains the gene trees files produced for the 18 Anopheles dataset.
 The directory contains 6 files:
@@ -224,6 +236,7 @@ It contains also 2 directories:
 
 
 ### "data/DATA_SEQ" directory
+```
 data/DATA_SEQ  
 ├── orientation_libraries  
 └── SCAFFOLDING/BESST-2.2.6  
@@ -231,6 +244,7 @@ data/DATA_SEQ
     └── Bowtie2_k50/TRIMMOMATIC3/blastn  
         ├── 50pourc  
         └── ALL  
+```
 
 The **data/DATA_SEQ** directory contains scaffolding results obtained with the scaffolding tool BESST. The directory contains one file **orientation_libraries**  with the information on the orientation of paired reads for the different SRX (cf file **doc/18Anopheles_sequencing_data.ods**) that are necessary to execute BESST. The FASTQ and BAM files are not present in this repository cause they take too much place (several To of space memory).
 The directory **data/DATA_SEQ/SCAFFOLDING/BESST-2.2.6** contains two directories:
@@ -240,6 +254,7 @@ The directory **data/DATA_SEQ/SCAFFOLDING/BESST-2.2.6** contains two directories
 
 
 ### "data/data_DeCoSTAR" directory
+```
 data/data_DeCoSTAR/  
 ├── CTG_file  
 ├── decostar  
@@ -250,6 +265,7 @@ data/data_DeCoSTAR/
 ├── GENE_file  
 ├── scaff_BESST_ALL_3_TRIMMOMATIC3  
 └── scaff_BESST_DeCoSTAR  
+```
 
 The **data/data_DeCoSTAR/** directory contains input data files to execute DeCoSTAR on the 18 Anopheles dataset:
 
@@ -262,6 +278,7 @@ The **data/data_DeCoSTAR/** directory contains input data files to execute DeCoS
 
 
 ### "data/validation_ADseq" directory
+```
 data/validation_ADseq/  
 ├── BLASTn  
 │   ├── Anopheles_albimanus/  
@@ -278,7 +295,8 @@ data/validation_ADseq/
     ├── Anopheles_albimanus/  
     ├── Anopheles_arabiensis/  
     └── Anopheles_dirus/  
-    
+```
+
 The **data/validation_ADseq/** directory contains input data files to execute DeCoSTAR with the ADseq and the ARt-DeCo algorithms to validate the ability of the ADseq algorithm to scaffold genomes. The directory is composed of 4 directories:
 
 * The **kmergenie/** directory contains results of the tool Kmergenie to define the best kmer size to assemble reads sampling with minia genome assembly tool.
@@ -289,6 +307,7 @@ The **data/validation_ADseq/** directory contains input data files to execute De
 
 
 ## "results" directory
+```
 results  
 ├── decostar  
 │   ├── WGtopo+scaff/  
@@ -301,6 +320,7 @@ results
         ├── Aara/  
         ├── Adir/  
         └── stats/blastn/  
+```
 
 The **results/** directory contains results produced after DeCoSTAR execution.
 
@@ -325,7 +345,7 @@ More over, for the results in Figure the DeClone support threshold used for some
 
 
 ## "figures" directory
-
+```
 figures  
 ├── besst_score  
 ├── distrib_gene_trees  
@@ -334,6 +354,7 @@ figures
 ├── R_plots  
 ├── scatterplot  
 └── Venn_diagram  
+```
 
 The directory **figures/** contains statistics graphs and figures present in the paper (svg or pdf) and produced from files of **data/** directory and **results/** directory. We allow re-use of these figures and ask re-user to cite our article. 
 
