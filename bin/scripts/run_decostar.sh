@@ -1,6 +1,6 @@
 #! /bin/bash
 
-decostar="bin/software_libraries/DeCoSTAR/bin/DeCoSTAR"
+decostar="bin/software_libraries/DeCoSTAR_standalone/bin/DeCoSTAR"
 paramDIR="data/data_DeCoSTAR/decostar"
 
 $decostar parameter.file=$paramDIR"/WGtopo+scaff/DeCoSTAR_Anopheles_WGtopo+scaff.param.txt"
