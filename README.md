@@ -31,7 +31,7 @@ To reproduce the experiments in the paper, two preliminaries steps have to be do
 2. Execute the pipeline to produce input data for the DeCoSTAR software (corresponding to the pipeline illustrated in the Figure 6 of the article)
     
 These two preliminaries steps are common to the following experiments presented in the paper: 
-* Execution of DeCoSTAR with ADseq/ARt-DeCo and DeClone algorithms on input data produced (adjacencies file (with or without scaffolding adjacencies) and gene trees (original or inferred with profileNJ)) for 2 species tree topologies:
+* Execution of DeCoSTAR with ADseq algorithm on input data produced (adjacencies file (with or without scaffolding adjacencies) and gene trees (original or inferred with profileNJ)) for 2 species tree topologies:
 
     * **X** species tree topology with **profileNJ** gene trees and **with scaffolding** adjacencies
     * **X** species tree topology with **profileNJ** gene trees  and **without scaffolding** adjacencies
