@@ -31,11 +31,7 @@ To reproduce the experiments in the paper, two preliminaries steps have to be do
 2. Execute the pipeline to produce input data for the DeCoSTAR software (corresponding to the pipeline illustrated in the Figure 6 of the article)
     
 These two preliminaries steps are common to the following experiments presented in the paper: 
-<<<<<<< HEAD
 * Execution of DeCoSTAR with ADseq algorithms on input data produced (adjacencies file (with or without scaffolding adjacencies) and gene trees (original or inferred with profileNJ)) for 2 species tree topologies:
-=======
-* Execution of DeCoSTAR with ADseq algorithm on input data produced (adjacencies file (with or without scaffolding adjacencies) and gene trees (original or inferred with profileNJ)) for 2 species tree topologies:
->>>>>>> 438beb1f52e0f9c8b4e37c2b6516c5a12881f4e7
 
     * **X** species tree topology with **profileNJ** gene trees and **with scaffolding** adjacencies
     * **X** species tree topology with **profileNJ** gene trees  and **without scaffolding** adjacencies
@@ -363,22 +359,20 @@ The directory [figures](figures) contains statistics graphs and figures present 
 
 
 
-
-
 # Software used in this study
-* [DeCoSTAR](http://pbil.univ-lyon1.fr/software/DeCoSTAR/) - DeCoSTAR software (containing ADseq algorithm). [GitHub repository](https://github.com/WandrilleD/DeCoSTAR)
-* [BESST](https://github.com/ksahlin/BESST) - BESST scaffolding tool
-* [profileNJ](https://github.com/maclandrol/profileNJ) - profileNJ refinement gene tree tool
-* [Samtools](http://samtools.sourceforge.net/)
-* [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
-* [minia](http://minia.genouest.org/)
+* [DeCoSTAR](http://pbil.univ-lyon1.fr/software/DeCoSTAR/) - Software including the ADseq algorithm. [GitHub repository](https://github.com/WandrilleD/DeCoSTAR)
+* [BESST](https://github.com/ksahlin/BESST) - Scaffolding genomic assemblies
+* [profileNJ](https://github.com/maclandrol/profileNJ) - Gene tree correction using species tree and NJ
+* [Samtools](http://samtools.sourceforge.net/) - Reading/writing/editing/indexing/viewing SAM/BAM/CRAM format
+* [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2/index.shtml) - Aligning sequencing reads to long reference sequences
+* [minia](http://minia.genouest.org/) - Short-read assembler based on a de Bruijn graph
 * [BLASTn](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE=Nucleotides&PROGRAM=blastn&BLAST_PROGRAMS=blastn&PAGETYPE=BlastSearch&DATABASE=refseq_rna&DESCRIPTIONS=100&EQ_TEXT=arabidopsis[orgn]&QUERY=8033)
-* [GBlocks](http://molevol.cmima.csic.es/castresana/Gblocks.html)
-* [Kmergenie](http://kmergenie.bx.psu.edu/)
-* [Muscle](https://www.drive5.com/muscle/)
-* [RAxML](https://sco.h-its.org/exelixis/web/software/raxml/index.html)
-* [SRAtoolkit](https://www.ncbi.nlm.nih.gov/sra/docs/toolkitsoft/)
-* [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
+* [GBlocks](http://molevol.cmima.csic.es/castresana/Gblocks.html) - Eliminating poorly aligned positions and divergent regions of a DNA or protein alignment
+* [Kmergenie](http://kmergenie.bx.psu.edu/) - Estimating the best k-mer length for genome de novo assembly
+* [Muscle](https://www.drive5.com/muscle/) -  Multiple sequence alignment
+* [RAxML](https://sco.h-its.org/exelixis/web/software/raxml/index.html) - Maximum-likelihood based phylogenetic inference
+* [SRAtoolkit](https://www.ncbi.nlm.nih.gov/sra/docs/toolkitsoft/) - Toolkit to download sequencing data from the NIH Sequence Read Archive (SRA)
+* [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) - Trimming tasks for illumina paired-end and single ended data
 
 
 
