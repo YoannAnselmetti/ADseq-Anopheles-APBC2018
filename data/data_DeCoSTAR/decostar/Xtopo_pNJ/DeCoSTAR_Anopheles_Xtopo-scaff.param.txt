@@ -1,7 +1,7 @@
 # required input files
 species.file=data/INPUT_DATA/Anopheles_species_tree_X_topology.nwk
 gene.distribution.file=data/data_DeCoSTAR/decostar/Xtopo_pNJ/distrib_DeCoSTAR_Anopheles_Xtopo_gene_trees.txt
-adjacencies.file=data/data_DeCoSTAR/decostar/Xtopo_pNJ/adjacencies-scaff.txt
+adjacencies.file=data/data_DeCoSTAR/decostar/adjacencies-scaff.txt
 
 # general parameters
 char.sep=@
