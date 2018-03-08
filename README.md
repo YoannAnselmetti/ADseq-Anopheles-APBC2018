@@ -4,7 +4,7 @@ Phylogenetic signal from rearrangements in 18 Anopheles species by joint scaffol
 
 # Introduction
 
-This repository contains all data and results produced for the paper "Phylogenetic signal from rearrangements in 18 Anopheles species by joint scaffolding extant and ancestral genomes" (accepted to [APBC2018](http://apbc2018.bio.keio.ac.jp/) and to appear in BMC Genomics). This paper presents a new method, called ADseq, that allows to improve scaffolding of extant genomes and jointly reconstructs gene order in ancestral genomes. It is mainly focused on the improvement of scaffolding of 18 Anopheles extant genomes.
+This repository contains all data and results produced for the paper "Phylogenetic signal from rearrangements in 18 Anopheles species by joint scaffolding extant and ancestral genomes" (accepted to [APBC2018](http://apbc2018.bio.keio.ac.jp/) and to appear in BMC Genomics). This paper presents a new method, called ADseq, that allows to improve scaffolding of extant genomes and jointly reconstructs gene order in ancestral genomes. It is mainly focused on the improvement of scaffolding of 18 Anopheles extant genomes. For a good understanding of this GitHub repository it is necessary to have read the article to which it refers in order to understand the different concepts/methods/results presented in it.
 
 First download or clone the GitHub repository with the green button "Clone or download" or with the command line:
 
@@ -24,14 +24,18 @@ git clone https://github.com/YoannAnselmetti/ADseq-Anopheles-APBC2018.git
 └── results/  
 ```
 
-All experiments presented in our paper can be reproduced from this repository (except some intermediate steps for which data are not available due to the large size of the files: GitHub limiting size to 100Mb)
+All experiments presented in our paper can be reproduced from this repository (except some intermediate steps for which data are not available due to the large size of the files: GitHub limiting size to 100Mb).
 
 To reproduce the experiments in the paper, two preliminaries steps have to be done:
 1. Clean and format raw input data files of the 18 Anopheles dataset produced by [Neafsey et al., 2015](http://science.sciencemag.org/content/347/6217/1258522.long), located in directory [data/INPUT_DATA](data/INPUT_DATA).
 2. Execute the pipeline to produce input data for the DeCoSTAR software (corresponding to the pipeline illustrated in the Figure 6 of the article)
     
 These two preliminaries steps are common to the following experiments presented in the paper: 
+<<<<<<< HEAD
+* Execution of DeCoSTAR with ADseq algorithms on input data produced (adjacencies file (with or without scaffolding adjacencies) and gene trees (original or inferred with profileNJ)) for 2 species tree topologies:
+=======
 * Execution of DeCoSTAR with ADseq algorithm on input data produced (adjacencies file (with or without scaffolding adjacencies) and gene trees (original or inferred with profileNJ)) for 2 species tree topologies:
+>>>>>>> 438beb1f52e0f9c8b4e37c2b6516c5a12881f4e7
 
     * **X** species tree topology with **profileNJ** gene trees and **with scaffolding** adjacencies
     * **X** species tree topology with **profileNJ** gene trees  and **without scaffolding** adjacencies
@@ -100,7 +104,7 @@ The directory [bin](bin) contains the softwares and scripts that have been used 
         1. produce new genome assembly with minia for the 6 experiments and scaffold minia (with script [01-run_ALL_exp_minia.sh](bin/scripts/validation_ADseq/01-run_ALL_exp_minia.sh) using scripts present in directory [bin/scripts/validation_ADseq/minia](bin/scripts/validation_ADseq/minia)). This script corresponds to the steps 1/, 2/ and 3/ of Figure S7 of our paper. These steps are not reproducible from this repository due to missing data (corresponding to the sequencing data in the FASTQ format that are too heavy to be stored on a GitHub repository). 
         2. map minia contigs on reference genome with BLASTn for the 6 experiments to transfer gene annotation from the reference genome to the minia contigs and produce input data files for DeCoSTAR (with script [02-run_ALL_exp_BLASTn.sh](bin/scripts/validation_ADseq/02-run_ALL_exp_BLASTn.sh) using scripts present in directory [bin/scripts/validation_ADseq/BLASTn](bin/scripts/validation_ADseq/BLASTn)). This script corresponds to the steps 4/ and 5/ of Figure S7. However, the script doesn't contain the step to execute BESST on BLASTn scaffolds to compute scaffolding adjacencies on fragmentated genomes (step 5/ of Figure S7). The scaffolding with BESST has to be done after the script [02-filter_BLASTn_results.py](bin/scripts/validation_ADseq/BLASTn/02-filter_BLASTn_results.py) and before the script [bin/scripts/validation_ADseq/BLASTn/06a-create_scaff_adj_prefile_BLASTn.py](bin/scripts/validation_ADseq/BLASTn/06a-create_scaff_adj_prefile_BLASTn.py). We stored the scaffolding files produced by BESST for this step in directory [data/DATA_SEQ/SCAFFOLDING/BESST-2.2.6/Bowtie2_k50](data/DATA_SEQ/SCAFFOLDING/BESST-2.2.6/Bowtie2_k50)
         3. execute DeCoSTAR and linearize adjacencies predictions (with script [03-run_decostar_validation_and_linearization.sh](bin/scripts/validation_ADseq/03-run_decostar_validation_and_linearization.sh) using scripts present in directory [bin/scripts/validation_ADseq/decostar](bin/scripts/validation_ADseq/decostar))
-        4. compare adjacencies predictions of ARt-DeCo, ADseq and BESST to the reference genome (precision and recall statistics) and compare adjacencies predictions accuracy between the 3 methods: Venn diagrams (with script **bin/scripts/validation_ADseq/04-stats_graphics_validation.sh** using scripts present in directory **bin/scripts/validation_ADseq/stats**) 
+        4. compare adjacencies predictions of ADseq, ADseq-sequencing data (phylogenetic signal only) and BESST to the reference genome (precision and recall statistics) and compare adjacencies predictions accuracy between the 3 methods: Venn diagrams (with script **bin/scripts/validation_ADseq/04-stats_graphics_validation.sh** using scripts present in directory **bin/scripts/validation_ADseq/stats**) 
 
     4. The directory [bin/scripts/post\_decostar](bin/scripts/post_decostar) contains the script [linearize\_generate\_stats\_decostar.sh](bin/scripts/post_decostar/linearize_generate_stats_decostar.sh) that linearizes adjacencies predicted by DeCoSTAR and compute statistics on genome rearrangements and scaffolding inferred by DeCoSTAR with scripts present in directory [bin/scripts/post\_decostar/code](bin/scripts/post_decostar/code). It contains also the directory [compute\_stats\_graph](bin/scripts/post_decostar/compute_stats_graph) that allows to compute all graphs and figures on the statistics of the results of DeCoSTAR present in the paper. 
 
@@ -256,16 +260,17 @@ The directory [data/DATA\_SEQ/SCAFFOLDING/BESST-2.2.6](data/DATA_SEQ/SCAFFOLDING
 
 ### "data/data\_DeCoSTAR" directory
 ```
-data/data_DeCoSTAR/  
-├── CTG_file  
-├── decostar  
-│   ├── adjacencies.txt  
-│   ├── WGtopo+scaff  
-│   ├── Xtopo_pNJ  
-│   └── Xtopo_RAW  
-├── GENE_file  
-├── scaff_BESST_ALL_3_TRIMMOMATIC3  
-└── scaff_BESST_DeCoSTAR  
+data/data_DeCoSTAR/
+├── CTG_file
+├── decostar
+│   ├── adjacencies-scaff.txt
+│   ├── adjacencies.txt
+│   ├── WGtopo+scaff
+│   ├── Xtopo_pNJ
+│   └── Xtopo_RAW
+├── GENE_file
+├── scaff_BESST_ALL_3_TRIMMOMATIC3
+└── scaff_BESST_DeCoSTAR 
 ```
 
 The [data/data\_DeCoSTAR](data/data_DeCoSTAR) directory contains input data files to execute DeCoSTAR on the 18 Anopheles dataset:
@@ -298,32 +303,29 @@ data/validation_ADseq/
     └── Anopheles_dirus/  
 ```
 
-The **data/validation\_ADseq/** directory contains input data files to execute DeCoSTAR with the ADseq and the ARt-DeCo algorithms to validate the ability of the ADseq algorithm to scaffold genomes. The directory is composed of 4 directories:
+The **data/validation\_ADseq/** directory contains input data files to execute DeCoSTAR with the ADseq algorithm to validate the ability of our algorithm to scaffold genomes. The directory is composed of 4 directories:
 
 * The **kmergenie/** directory contains results of the tool Kmergenie to define the best kmer size to assemble reads sampling with minia genome assembly tool.
 * The **FASTA/SCAFF** directory contains genome assemblies in the FASTA file format for the 3 species selected for the validation steps obtain with minia (**minia/** directory) and after BLASTn gene annotation (**blastn/** directory).
 * The **BLASTn/** directory contains the alignments of contigs produced with minia and mapped on  reference genome assemblies with BLASTn to map gene of reference genome on minia contigs for the 6 experiments (3 species and 2 reads sampling)  
-* The **DeCoSTAR/BLASTn/** directory contains the data to apply DeCoSTAR with the ADseq and ARt-DeCo algorithms on the 6 genome fragmentation experiments.  
+* The **DeCoSTAR/BLASTn/** directory contains the data to apply DeCoSTAR with the ADseq algorithm on the 6 genome fragmentation experiments.  
 
 
 
 ## "results" directory
 ```
-results  
-├── decostar  
-│   ├── WGtopo+scaff/  
-│   ├── Xtopo_RAW/  
-│   ├── Xtopo-scaff/  
-│   └── Xtopo+scaff/  
-└── validation_ADseq  
-    └── spi_20  
-        ├── Aalb/  
-        ├── Aara/  
-        ├── Adir/  
-        └── stats/blastn/  
+results/
+├── decostar
+│   ├── WGtopo+scaff
+│   ├── Xtopo_RAW
+│   ├── Xtopo-scaff
+│   └── Xtopo+scaff
+├── README_results.md
+└── validation_ADseq
+    └── spi_20
 ```
 
-The [results](results) directory contains results produced after DeCoSTAR execution.
+The [results](results) directory contains results produced after DeCoSTAR execution with the README_results.md file explaining the format of the different results present in this directory. 
 
 The [results/decostar](results/decostar) directory contains the results of DeCoSTAR with the algorithm ADseq on the 18 Anopheles dataset for the 4 conditions described in the paper:
 
@@ -332,16 +334,16 @@ The [results/decostar](results/decostar) directory contains the results of DeCoS
 * **Xtopo-scaff**: X species tree topology without scaffolding adjacencies and profileNJ trees
 * **Xtopo\_RAW**: X species tree topology with scaffolding adjacencies and original gene trees
 
-The [results/validation\_ADseq](results/validation_ADseq) directory contains the results of DeCoSTAR with the algorithms ADseq and ARt-DeCo for the 6 experiments with a fragmented genome for the validation of the scaffolding ability of ADseq algorithm, where there is one directory by species with genome fragmentation simulation (each containing 2 directories ("50pourc" and "ALL") for the two reads sampling:
+The [results/validation\_ADseq](results/validation_ADseq) directory contains the results of DeCoSTAR with the algorithm ADseq for the 6 experiments with a fragmented genome for the validation of the scaffolding ability of ADseq algorithm, where there is one directory by species with genome fragmentation simulation (each containing 2 directories ("50pourc" and "ALL") for the two reads sampling:
 
 * Aalb: A. albimanus
 * Aara: A. arabiensis
 * Adir: A. dirus
 
-The [spi\_20/stats/blastn](results/validation_ADseq/spi_20/stats/blastn/) directory contains files on precision and recall statistics for the 6 fragmented genomes experiments for the 3 methods compared (ADseq, ARt-DeCo and BESST) and files to produce Venn diagrams to compare scaffolding results between the 3 methods.
+The [spi\_20/stats/blastn](results/validation_ADseq/spi_20/stats/blastn/) directory contains files on precision and recall statistics for the 6 fragmented genomes experiments for the 3 methods compared (ADseq, ADseq (-sequencing data) and BESST) and files to produce Venn diagrams to compare scaffolding results between the 3 methods.
 
-It is important to note that results in this repository are very slightly different from the results in the paper due to the fact that to produce this repository, results have been reproduced but the sampling of solutions by DeClone is not the same between two runs then results can slightly diverged. This is the case in this repository but conclusions.
-More over, for the results in Figure the DeClone support threshold used for some 
+It is important to note that results in this repository are very slightly different from the results in the paper due to the fact that to produce this repository, results have been reproduced but the sampling of solutions is not the same between two runs then results can slightly diverged. This is the case in this repository but conclusions.
+Moreover, for the results in Figure the support threshold used for some 
 
 
 
@@ -364,7 +366,7 @@ The directory [figures](figures) contains statistics graphs and figures present 
 
 
 # Software used in this study
-* [DeCoSTAR](http://pbil.univ-lyon1.fr/software/DeCoSTAR/) - DeCoSTAR software (containing ARt-DeCo and ADseq algorithms). [GitHub repository](https://github.com/WandrilleD/DeCoSTAR)
+* [DeCoSTAR](http://pbil.univ-lyon1.fr/software/DeCoSTAR/) - DeCoSTAR software (containing ADseq algorithm). [GitHub repository](https://github.com/WandrilleD/DeCoSTAR)
 * [BESST](https://github.com/ksahlin/BESST) - BESST scaffolding tool
 * [profileNJ](https://github.com/maclandrol/profileNJ) - profileNJ refinement gene tree tool
 * [Samtools](http://samtools.sourceforge.net/)
