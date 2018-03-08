@@ -336,7 +336,7 @@ The [results/validation\_ADseq](results/validation_ADseq) directory contains the
 * Aara: A. arabiensis
 * Adir: A. dirus
 
-The [spi\_20/stats/blastn](results/validation_ADseq/spi_20/stats/blastn/) directory contains files on precision and recall statistics for the 6 fragmented genomes experiments for the 3 methods compared (ADseq, ADseq (-sequencing data) and BESST) and files to produce Venn diagrams to compare scaffolding results between the 3 methods.
+The [spi\_20/stats/blastn](results/validation_ADseq/spi_20/stats/blastn/) directory contains files on precision and recall statistics for the 6 fragmented genomes experiments for the 3 methods compared (ADseq, ADseq (-sequencing data) and BESST) and files to produce Venn diagrams to compare scaffolding results between the 3 methods with/without considering orientation of gene in the computation of the statistics.
 
 It is important to note that results in this repository are very slightly different from the results in the paper due to the fact that to produce this repository, results have been reproduced but the sampling of solutions is not the same between two runs then results can slightly diverged. This is the case in this repository but conclusions are unchanged. 
 
